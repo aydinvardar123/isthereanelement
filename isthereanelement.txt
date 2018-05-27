@@ -1,0 +1,26 @@
+public int GetElementsSize(By by)
+        {
+            int size = 0;
+            try
+            {
+                size = Driver.FindElements(by).Count;
+            }
+            catch (Exception e)
+            {
+                log.Fatal(by + " " + e.Message);
+            }
+
+            return size;
+        }
+
+public bool IsElementNotPresent(By by)
+        {
+            log.Debug(by);
+            int size = GetElementsSize(by);
+            if (size == 0)
+                return true;
+            else
+            {
+                return false;
+            }
+        }
